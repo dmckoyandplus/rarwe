@@ -12,10 +12,13 @@ export default Controller.extend({
     addSong(){
       this.set('isAddingSong', true)
     },
-    saveSong(event){
+    async saveSong(event){
       event.preventDefault();
-      let newSong = Song.create({title: this.newSongName});
-      this.model.songs.pushObject(newSong);
+      let newSong = this.store.createRecord('song', {
+        title: this.newSongName,
+        band: this.model
+      });
+      await newSong.save();
       this.set('newSongName', '');
     },
     cancelAddSong(){
