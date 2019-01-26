@@ -7,7 +7,7 @@ const { Model, attr, hasMany } = DS;
 export default Model.extend({
   name: attr('string'),
   description: attr('string'),
-  songs: hasMany('song'),
+  songs: hasMany(),
 
   slug: computed('name', function(){
     return dasherize(this.name);
