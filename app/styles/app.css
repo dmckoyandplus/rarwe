@@ -172,3 +172,9 @@ a {
 .rating-panel > .rating-star {
   cursor: pointer;
 }
+
+#ember-testing-container {
+  font-family: 'avenir next', avenir, sans-serif;
+  color: var(--near-white);
+  background-color: var(--mid-grey) !important;
+}
