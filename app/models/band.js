@@ -1,5 +1,3 @@
-import { computed } from '@ember/object';
-import { dasherize } from '@ember/string';
 import DS from 'ember-data';
 
 const { Model, attr, hasMany } = DS;
