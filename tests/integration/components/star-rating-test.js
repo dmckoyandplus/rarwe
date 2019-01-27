@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import EmberObject from '@ember/object';
 
 module('Integration | Component | star-rating', function(hooks) {
   setupRenderingTest(hooks);
@@ -24,5 +25,18 @@ module('Integration | Component | star-rating', function(hooks) {
 
     assert.dom('.fa-star').exists({ count: 2 }, 'The right amount of full stars is rendered after changing rating');
     assert.dom('.fa-star-o').exists({ count: 8 }, 'The right amount of empty stars is rendered after changing the rating');
+  });
+
+  test('The setRating action', async function(assert){
+    this.set('song', EmberObject.create({ rating: 3 }));
+    this.set('actions', {
+      updateRating(song, rating){
+        song.set('rating', rating);
+      }
+    });
+
+    await render(hbs`{{star-rating rating=song.rating onClick=(action 'updateRating' song)}}`);
+    await click('[data-test-rr=star-rating-5]');
+    assert.equal(this.get('song.rating'), 5, "The click star's rating is correctly sent");
   });
 });
