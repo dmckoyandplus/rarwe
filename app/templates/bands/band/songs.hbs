@@ -1,3 +1,25 @@
+<div class="rr-controls-panel">
+  <div class="rr-sort-panel">
+    <button class="rr-sort-button" data-test-rr="sort-by-rating-desc">
+      Rating
+      {{fa-icon "angle-down"}}
+    </button>
+    <button class="rr-sort-button" data-test-rr="sort-by-rating-asc">
+      Rating
+      {{fa-icon "angle-up"}}
+    </button>
+    <button class="rr-sort-button" 
+      data-test-rr="sort-by-title-desc"
+      onclick={{action "updateSortBy" "titleDesc"}}>
+      Title
+      {{fa-icon "angle-down"}}
+    </button>
+    <button class="rr-sort-button" data-test-rr="sort-by-title-asc">
+      Title
+      {{fa-icon "angle-up"}}
+    </button>
+  </div>
+</div>
 <ul class="rr-list">
   {{#each sortedSongs as |song|}}
     <li class="rr-list-item" data-test-rr="song-list-item">
