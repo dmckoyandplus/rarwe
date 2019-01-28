@@ -1,5 +1,5 @@
 <ul class="rr-list">
-  {{#each model.songs as |song|}}
+  {{#each sortedSongs as |song|}}
     <li class="rr-list-item" data-test-rr="song-list-item">
       {{song.title}}
       {{star-rating class="fr" rating=song.rating onClick=(action "updateRating" song)}}
