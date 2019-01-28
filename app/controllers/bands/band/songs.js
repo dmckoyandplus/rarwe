@@ -1,9 +1,22 @@
 import Controller from '@ember/controller';
-import { empty } from '@ember/object/computed';
+import { empty, sort } from '@ember/object/computed';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   isAddingSong: false,
   newSongName: '',
+  sortBy: 'ratingDesc',
+  
+  sortProperties: computed('sortBy', function(){
+    let options = {
+      ratingDesc: ['rating:desc', 'title:asc'],
+      ratingAsc: ['rating:asc', 'title:asc'],
+      titleDesc: ['title:desc'],
+      titleAsc: ['title:asc']
+    };
+    return options[this.sortBy];
+  }),
+  sortedSongs: sort('model.songs', 'sortProperties'),
 
   isAddButtonDisabled: empty('newSongName'),
 
