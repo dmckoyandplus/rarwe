@@ -6,7 +6,7 @@ export default Controller.extend({
   isAddingSong: false,
   newSongName: '',
   sortBy: 'ratingDesc',
-  
+
   sortProperties: computed('sortBy', function(){
     let options = {
       ratingDesc: ['rating:desc', 'title:asc'],
@@ -39,6 +39,9 @@ export default Controller.extend({
     updateRating(song, rating){
       song.set('rating', song.rating === rating ? 0 : rating);
       song.save();
+    },
+    updateSortBy(sortBy){
+      this.set('sortBy', sortBy)
     }
   }
   
