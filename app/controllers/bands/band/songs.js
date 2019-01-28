@@ -39,9 +39,6 @@ export default Controller.extend({
     updateRating(song, rating){
       song.set('rating', song.rating === rating ? 0 : rating);
       song.save();
-    },
-    updateSortBy(sortBy){
-      this.set('sortBy', sortBy)
     }
   }
   

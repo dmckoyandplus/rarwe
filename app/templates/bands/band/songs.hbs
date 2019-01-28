@@ -2,25 +2,25 @@
   <div class="rr-sort-panel">
     <button class="rr-sort-button" 
       data-test-rr="sort-by-rating-desc"
-      onclick={{action "updateSortBy" "ratingDesc"}}>
+      onclick={{action (mut sortBy) "ratingDesc"}}>
       Rating
       {{fa-icon "angle-down"}}
     </button>
     <button class="rr-sort-button" 
       data-test-rr="sort-by-rating-asc"
-      onclick={{action "updateSortBy" "ratingAsc"}}>
+      onclick={{action (mut sortBy) "ratingAsc"}}>
       Rating
       {{fa-icon "angle-up"}}
     </button>
     <button class="rr-sort-button" 
       data-test-rr="sort-by-title-desc"
-      onclick={{action "updateSortBy" "titleDesc"}}>
+      onclick={{action (mut sortBy) "titleDesc"}}>
       Title
       {{fa-icon "angle-down"}}
     </button>
     <button class="rr-sort-button" 
       data-test-rr="sort-by-title-asc"
-      onclick={{action "updateSortBy" "titleAsc"}}>
+      onclick={{action (mut sortBy) "titleAsc"}}>
       Title
       {{fa-icon "angle-up"}}
     </button>
